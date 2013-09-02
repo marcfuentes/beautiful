@@ -1,0 +1,16 @@
+<h2><%= t(:show, :default => "Show") %> <%= t(:categories, :default => "categories") %></h2>
+
+  <p>
+    <b><%= t(:name, :default => "Name") %>:</b>
+      <%= @categories.name %>
+  </p>
+  <p>
+    <b><%= t(:description, :default => "Description") %>:</b>
+      <%= @categories.description %>
+  </p>
+
+<!-- Beautiful_scaffold - AddField - Field - Do not remove -->
+
+<%= link_to t(:edit, :default => "Edit"), edit_admin_categories_path(@categories), :class => "btn" %>
+<%= link_to t(:back, :default => "Back"), admin_categories_path, :class => "btn" %>
+
