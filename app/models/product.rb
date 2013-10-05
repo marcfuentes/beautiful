@@ -1,4 +1,5 @@
 class Product < ActiveRecord::Base
+  has_and_belongs_to_many :families
   has_and_belongs_to_many :categories
   belongs_to :family
   include BeautifulScaffoldModule      
@@ -22,5 +23,5 @@ class Product < ActiveRecord::Base
   def caption
     (self["name"] || self["label"] || self["description"] || "##{id}")
   end
-  attr_accessible :categories_ids, :family_id, :description, :name, :price, :tva, :visible
+  attr_accessible :family_ids, :categories_ids, :family_id, :description, :name, :price, :tva, :visible
 end

@@ -1,0 +1,40 @@
+<h2><%= t(:show, :default => "Show") %> <%= t(:trabajador, :default => "trabajador") %></h2>
+
+  <p>
+    <b><%= t(:rut, :default => "Rut") %>:</b>
+      <%= @trabajador.rut %>
+  </p>
+  <p>
+    <b><%= t(:nombre, :default => "Nombre") %>:</b>
+      <%= @trabajador.nombre %>
+  </p>
+  <p>
+    <b><%= t(:materno, :default => "Materno") %>:</b>
+      <%= @trabajador.materno %>
+  </p>
+  <p>
+    <b><%= t(:paterno, :default => "Paterno") %>:</b>
+      <%= @trabajador.paterno %>
+  </p>
+  <p>
+    <b><%= t(:perfil, :default => "Perfil") %>:</b>
+      <%= @trabajador.perfil %>
+  </p>
+  <p>
+    <b><%= t(:profesion, :default => "Profesion") %>:</b>
+      <%= @trabajador.profesion %>
+  </p>
+  <p>
+    <b><%= t(:email, :default => "Email") %>:</b>
+      <%= @trabajador.email %>
+  </p>
+  <p>
+    <b><%= t(:sueldo, :default => "Sueldo") %>:</b>
+      <%= @trabajador.sueldo %>
+  </p>
+
+<!-- Beautiful_scaffold - AddField - Field - Do not remove -->
+
+<%= link_to t(:edit, :default => "Edit"), edit_admin_trabajador_path(@trabajador), :class => "btn" %>
+<%= link_to t(:back, :default => "Back"), admin_trabajadors_path, :class => "btn" %>
+

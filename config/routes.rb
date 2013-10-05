@@ -1,4 +1,20 @@
 Beautiful::Application.routes.draw do
+  match "admin/trabajadors/search_and_filter" => "admin/trabajadors#index", :via => [:get, :post], :as => :admin_search_trabajadors
+  namespace :admin do
+  resources :trabajadors do
+    collection do
+      post :batch
+      get  :treeview
+    end
+    member do
+      post :treeview_update
+    end
+  end
+end
+
+
+  devise_for :models
+
   match "admin/categories/search_and_filter" => "admin/categories#index", :via => [:get, :post], :as => :admin_search_categories
   namespace :admin do
   resources :categories do

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130902021218) do
+ActiveRecord::Schema.define(:version => 20131001032535) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -20,12 +20,44 @@ ActiveRecord::Schema.define(:version => 20130902021218) do
     t.datetime "updated_at",  :null => false
   end
 
+  create_table "categories_products", :id => false, :force => true do |t|
+    t.integer "categories_id"
+    t.integer "product_id"
+  end
+
+  add_index "categories_products", ["categories_id", "product_id"], :name => "index_categories_products_on_categories_id_and_product_id"
+
   create_table "families", :force => true do |t|
     t.string   "name"
     t.text     "description"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
+
+  create_table "families_products", :id => false, :force => true do |t|
+    t.integer "family_id"
+    t.integer "product_id"
+  end
+
+  add_index "families_products", ["family_id", "product_id"], :name => "index_families_products_on_family_id_and_product_id"
+
+  create_table "models", :force => true do |t|
+    t.string   "email",                  :default => "", :null => false
+    t.string   "encrypted_password",     :default => "", :null => false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          :default => 0
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.datetime "created_at",                             :null => false
+    t.datetime "updated_at",                             :null => false
+  end
+
+  add_index "models", ["email"], :name => "index_models_on_email", :unique => true
+  add_index "models", ["reset_password_token"], :name => "index_models_on_reset_password_token", :unique => true
 
   create_table "products", :force => true do |t|
     t.string   "name"
@@ -39,5 +71,18 @@ ActiveRecord::Schema.define(:version => 20130902021218) do
   end
 
   add_index "products", ["family_id"], :name => "index_products_on_family_id"
+
+  create_table "trabajadors", :force => true do |t|
+    t.integer  "rut"
+    t.string   "nombre"
+    t.string   "materno"
+    t.string   "paterno"
+    t.string   "perfil"
+    t.string   "profesion"
+    t.string   "email"
+    t.integer  "sueldo"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
 end

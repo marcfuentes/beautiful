@@ -1,6 +1,4 @@
-class Family < ActiveRecord::Base
-  has_and_belongs_to_many :products
-  has_many :products, :dependent => :nullify
+class Trabajador < ActiveRecord::Base
   include BeautifulScaffoldModule      
 
   before_save :fulltext_field_processing
@@ -22,5 +20,5 @@ class Family < ActiveRecord::Base
   def caption
     (self["name"] || self["label"] || self["description"] || "##{id}")
   end
-  attr_accessible :product_ids, :description, :name
+  attr_accessible :email, :materno, :nombre, :paterno, :perfil, :profesion, :rut, :sueldo
 end
